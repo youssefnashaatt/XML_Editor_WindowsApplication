@@ -71,13 +71,7 @@ string XML_tree::get_tag(Node* n)
 	return n->TAG_name;
 }
 
-/************************************************************************************************
- * [Function Name]: XML_tree_creation                                                          *
- * [Description]:  Function to take 2 passwords from the user                                   *
- * [Args]:         file_lines:                                                  *
- * 				   nodes:                                               *
- * [Returns]:                                                                                   *
- ************************************************************************************************/
+
 void XML_tree_creation(vector<string> file_lines, vector<Node*>& nodes, XML_tree& tree, stack<int>& tags)
 {
 
