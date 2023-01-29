@@ -1,0 +1,12 @@
+#ifndef XML_MINIFYING_H_
+#define XML_MINIFYING_H_
+
+#include <iostream>
+#include <string>
+#include <stack>
+
+/*Function Prototype*/
+
+string XML_Minifing(string XML_Text);
+
+#endif /* XML_MINIFYING_H_ */
