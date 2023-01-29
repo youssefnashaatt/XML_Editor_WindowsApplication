@@ -1,6 +1,7 @@
-#include <iostream>
-#include <stack>
-#include <string>
+#include "XML_Minifying.h"
+
+using namespace std;
+
 
 /*
  * Description: XML_Minifing is a function used to delete all spaces, enter and tabs characters
@@ -12,7 +13,7 @@
  * Parameters: (string) to be edited
  * return: editted string
  */
-string XML_Minifing(string XML_Text)
+string XML_Minifying(string XML_Text)
 {
 	int index = 0;
 	int counter = 0;

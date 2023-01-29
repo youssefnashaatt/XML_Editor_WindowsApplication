@@ -1,3 +1,8 @@
+#include "XML_CheckBrackets.h"
+
+using namespace std;
+
+
 
 bool XML_CheckBrackets(string XML_Text)
 {
