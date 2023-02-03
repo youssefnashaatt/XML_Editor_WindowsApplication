@@ -1,12 +1,9 @@
-#include <stack>
-#include <string>
-#include <iostream>
-
+#include "XML_TagSyntaxValidate.h"
 
 using namespace std;
 
 
-void XML_TagSyntaxValidate(string XML_Text)
+bool XML_TagSyntaxValidate(string XML_Text)
 {
 	stack <string> stack;
 
@@ -74,6 +71,7 @@ void XML_TagSyntaxValidate(string XML_Text)
 				{
 					cout << "\n\nSyntax Error  Line:" << line_index << " Character: " << char_index << endl;
 					stack.pop();
+					return false;
 				}
 			}
 
@@ -81,6 +79,20 @@ void XML_TagSyntaxValidate(string XML_Text)
 
 
 		index++;
+	}
+
+
+	if(!stack.empty())
+	{
+		//Return false (XML incorrect)
+		cout << "\n\n" <<stack.top() << " tag is not closed\n\n" << endl;
+		return false;
+	}
+
+	else
+	{
+		//Else if empty return true
+		return true;
 	}
 
 }

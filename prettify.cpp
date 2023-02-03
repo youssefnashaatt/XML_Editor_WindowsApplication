@@ -1,5 +1,4 @@
 #include "prettify.h"
-
 vector<string> TextToString(string file) {
     string copyString;
     vector<string> fileStrings(1000);
@@ -8,9 +7,11 @@ vector<string> TextToString(string file) {
     {
         if (c == ' ')
         {
-            fileStrings[counter] = copyString;
-            counter++;
-            copyString.clear();
+            if (!copyString.empty()) {
+                fileStrings[counter] = copyString;
+                counter++;
+                copyString.clear();
+            }
         }
         else if (c == '>')
         {
@@ -24,11 +25,15 @@ vector<string> TextToString(string file) {
         }
         else if (c == '<')
         {
-            fileStrings[counter] = copyString;
-            counter++;
-            fileStrings[counter] = "\n";
-            counter++;
-            copyString.clear();
+            if (!copyString.empty())
+            {
+                fileStrings[counter] = copyString;
+                counter++;
+                fileStrings[counter] = "\n";
+                counter++;
+                copyString.clear();
+            }
+            
             copyString += c;
         }
         else if (c == '-'|| c=='\t'||c=='\n') continue;

@@ -1,0 +1,6 @@
+00:39:42 **** Incremental Build of configuration Debug for project DS_Project ****
+Info: Internal Builder is used for build
+g++ -o DS_Project.exe Main.o XML_CheckBrackets.o XML_Minifying.o XML_TagSyntaxValidate.o XML_fileHandling.o json.o prettify.o tree.o 
+
+00:39:44 Build Finished. 0 errors, 0 warnings. (took 2s.388ms)
+

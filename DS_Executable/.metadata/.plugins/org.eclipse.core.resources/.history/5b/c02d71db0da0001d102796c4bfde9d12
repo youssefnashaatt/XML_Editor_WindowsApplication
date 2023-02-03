@@ -1,0 +1,12 @@
+
+#ifndef XML_TAGSYNTAXVALIDATE_H_
+#define XML_TAGSYNTAXVALIDATE_H_
+
+
+#include <stack>
+#include <string>
+#include <iostream>
+
+
+
+#endif /* XML_TAGSYNTAXVALIDATE_H_ */
