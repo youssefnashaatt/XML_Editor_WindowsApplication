@@ -1,5 +1,5 @@
 # Data-Structure-Project
-ASU, Senior 1 2024, Data Structure Project
+ASU, Senior 1 2024, Data Structure Project<br /> 
 An XML editor (Windows Application) to help understanding data of XML files. User can load XML files and choose from multiple operations, some of them are generic to any XML (error detection, converting XML to JSON, beautifying, compression and decompression), and others are for a certain XML scheme (error correction, visualizing followers graph, network analysis, post search, recommending followers and getting mutual followers)
 <br />
 # Team_Members <br />
