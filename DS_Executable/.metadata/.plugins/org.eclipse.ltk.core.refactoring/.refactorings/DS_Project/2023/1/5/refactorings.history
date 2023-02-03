@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;DS_Project/tree.h.h&apos; to &apos;tree.h&apos;" description="Rename resource &apos;tree.h.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="tree.h.h" name="tree.h" stamp="1675021220851" updateReferences="true"/>
-</session>
