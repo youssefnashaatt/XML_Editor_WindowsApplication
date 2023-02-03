@@ -26,10 +26,10 @@ https://github.com/NirvanaGamal <br />
 <br /> ● Visualizing Followers
 <br /> ● Post Search
 <br /> ● Network Analysis which includes:
-<br /> ● The Most Influential User 
-<br /> ● The Most Active User
-<br /> ● Recommend Followers
-<br /> ● Get Mutual Friends
+<br />   &ensp; &ensp; &ensp; &ensp;   - The Most Influential User 
+<br />  &ensp; &ensp; &ensp; &ensp;  - The Most Active User
+<br />  &ensp; &ensp; &ensp; &ensp;  - Recommend Followers
+<br />  &ensp; &ensp; &ensp; &ensp;  - Get Mutual Friends
 # Project_Drive_link
 here's a video for testing the GUI & PDF explaining the algorithm, time and space complexity for each function: <br />
 https://drive.google.com/drive/folders/1xVkuKbSSIJgNhYELCJ78RmyP69FkqgN5 <br />
