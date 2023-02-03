@@ -1,25 +1,32 @@
 #include "bitsring.h"
 
-void bitstring::bitstring_append(int bitOffset,string strdata )
+
+void bitstring::bitstring_append(bitstring* code)
 {
-	bitCount += strdata.size();
-	if (byteCapacity < ceil(bitCount / 8))
+	int old = byteCapacity;
+	if (byteCapacity <=(bitCount+code->bitCount)>>3)
 	{
-	byteCapacity = ((bitCount+7) >>3)*2; //doubling size dayman
-	//data.resize(byteCapacity);
-	}
-	
-	
-		for (int b = 0; b <= strdata.size(); b++)
-		{
-			int i =( b +bitOffset)>> 3;
-			int bit = strdata[ b >> 3] >> ((bitOffset + b) & 7) & 1; //khdt el byte eli 3yzaha ba3d keda el bit w 3mlt shift w safart ba2y el bits
-			data[i] |= bit << (b & 7); // &7 == rakam el bit kam fel byte 
-		}
 		
+		byteCapacity = ((bitCount + code->bitCount + 7) >> 3) * 2; //doubling size dayman
+		data.resize(byteCapacity);
+		for (int i = old; i < byteCapacity; i++) { data.push_back(0); }
+
+	}
+
+	
+	for (int b = 0; b < code->bitCount; b++)
+	{
+		
+		int bit = (code->data[b >> 3] >> ((  b) & 7)) & 1;
+		int i = (b + bitCount) >> 3;
+		
+		data[i] |= (bit << ((b +bitCount)& 7)); // &7 == rakam el bit kam fel byte 
+	}
+	bitCount += code->bitCount;
+	
 }
 
-int bitstring::bitstring_get(int bitIndex)
+char bitstring::bitstring_get(int bitIndex)
 {
 	int i = bitIndex >> 3;
 	if (bitIndex >= bitCount) return -1;
@@ -35,4 +42,26 @@ void bitstring::bitstring_set(int bit, int bitIndex)
 		data[i] |= 1 << (bitIndex & 7);
 	else
 		data[i] &= 0 << (bitIndex & 7);
+}
+
+void bitstring::bitstringclear()
+{
+	bitCount = 0;
+	for (auto& c : data) c = 0;
+}
+
+void bitstring::bitstring_char_append(char c)
+{
+	bitCount++;
+	if ((bitCount>>3)>byteCapacity)
+	{
+		if (byteCapacity == 0) byteCapacity = 1;
+		byteCapacity *= 2;
+		data.resize(byteCapacity);
+		for (int i = byteCapacity/2; i < byteCapacity; i++) { data.push_back(0);
+		}
+	}
+	data[bitCount >> 3] = (data[bitCount >> 3]) << 1;
+	data[bitCount >> 3] |= (c&1);
+	//data[bitCount >> 3] |= c << ((bitCount-1) & 7);
 }

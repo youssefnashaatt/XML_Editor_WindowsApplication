@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 //calculate frequancy .. generate tree ..e3ml bitsring
-void generateCode(string XML_Text);
 
+string generateCompressedCode(string XML_Text, vector<unsigned int> &freq);
+string generateDecompressedCode(string compressed_Text, vector<unsigned int> freq);
 

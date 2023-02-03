@@ -18,21 +18,91 @@
 		}
 
 
-
-		void HuffmanTree::generatebitCode(HuffmanTreeNode* root,string s)
+		void HuffmanTree::generatebitCode(HuffmanTreeNode* root,string s, bool firstNodeFlag)
 		{
-			*root->bitscode = bitstring(s, '0');
-			cout << root->data << "/t" << s<<endl;
+			
+			
 			if (root->leftNode )
 			{
+			
 				string ss = { '0' };
-				generatebitCode(root->leftNode, s + ss);
+				
+				generatebitCode(root->leftNode,  ss+s,false );
 				
 			}
 			if (root->rightNode)
 			{
+				
 				string ss = { '1' };
-				generatebitCode(root->rightNode,s+ss);
+				
+				generatebitCode(root->rightNode,ss+s,false);
+			}
+
+			if (root->data != '$')
+			{
+				
+				root->bitscode = new bitstring(s, 0);
+				alphaBitstring[root->data] = root->bitscode;
+				
 			}
 		}
+
+		/*void HuffmanTree::degeneratebitCode(HuffmanTreeNode* root, string s, bool firstNodeFlag)
+		{
+
+			if (root->leftNode)
+			{
+				
+				string ss = { '0' };
+				
+				degeneratebitCode(root->leftNode, ss+s, false);
+
+			}
+			if (root->rightNode)
+			{
+				
+				string ss = { '1' };
+				
+				degeneratebitCode(root->rightNode, ss+s, false);
+			}
+
+			if (root->data != '$')
+			{
+				
+				root->bitscode = new bitstring(s, 0);
+				alphaBitstring[root->data] = root->bitscode;
+				
+			}
+		}*/
+		char HuffmanTree::bitstringSearch(bitstring* code, bool* found)
+		{
+			*found = false;
+			for (int i = 0; i < 256; i++)
+			{
+				if (alphaBitstring[i] == nullptr) {
+					continue;
+				}
+				else if ((code->bitCount == alphaBitstring[i]->bitCount))// && code->data[0] == alphaBitstring[i]->data[0])
+				{
+					for (int j = 0; j < alphaBitstring[i]->bitCount / 8 + 1; j++)
+					{
+						if (code->data[j] == alphaBitstring[i]->data[j])
+						{
+							*found = true;
+							
+						}
+						else {
+							
+							*found = false; break;
+						}
+					}
+				}	
+					if (*found == true) return i;
+			}
+			return 0;
+		}
+
+
+				
+				
 		

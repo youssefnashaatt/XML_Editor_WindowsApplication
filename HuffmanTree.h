@@ -6,16 +6,17 @@ using namespace std;
 #include "Prettify_DS_28_1/bitsring.h"
 
 
+
 class HuffmanTreeNode
 {
 public:
-	char data;//character
+	unsigned char data;//unsigned character
 	int frequancy; //number of repeatation 
 
 	HuffmanTreeNode* leftNode;
 	HuffmanTreeNode* rightNode;
 	bitstring *bitscode;
-	HuffmanTreeNode(char data, int frequancy)
+	HuffmanTreeNode(unsigned char data, int frequancy)
 	{
 		this->data = data;
 		this->frequancy = frequancy;
@@ -34,8 +35,16 @@ public:
 class HuffmanTree
 {
 public:
+	vector<bitstring*> alphaBitstring;
 	priority_queue <HuffmanTreeNode*, vector<HuffmanTreeNode*>, compare> MainTree;
+	HuffmanTree()
+	{
+		for (int i = 0; i < 256; i++) alphaBitstring.push_back(nullptr);
+	}
 	void generateTree(); 
-	void generatebitCode(HuffmanTreeNode* root, string s);
+	void generatebitCode(HuffmanTreeNode* root, string s, bool firstNodeFlag);
+	char bitstringSearch(bitstring* code, bool* found);
+	void degeneratebitCode(HuffmanTreeNode* root, string s, bool firstNodeFlag);
+
 };
 #endif
